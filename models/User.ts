@@ -1,5 +1,5 @@
 import AccountType from "./AccountType";
-import MaritalStatus from "./MaritalStatus";
+import MaritalStatus from "./MartialStatus";
 import Location from "./Location";
 
 export default class User {
