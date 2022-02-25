@@ -1,5 +1,5 @@
 /**
- * @file implements a mongoose model to CRUD
+ * @file a mongoose model to operation
  * documents in the follows collection
  */
 import mongoose from "mongoose";

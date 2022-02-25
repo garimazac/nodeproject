@@ -1,6 +1,15 @@
+/**
+ * @file Declares User data type representing relationship between
+ *
+ */
 import AccountType from "./AccountType";
 import MaritalStatus from "./MartialStatus";
 import Location from "./Location";
+
+/**
+ * @typedef User Represents user
+ *
+ */
 
 export default class User {
    private username: string = '';

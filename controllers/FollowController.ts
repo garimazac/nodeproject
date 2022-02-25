@@ -19,8 +19,6 @@ import Follow from "../models/Follow";
  *  </li>
  *  <li> GET /api/users/:uid/followers to retrieve all the users that are following
  *  a user </li>
- *  <li> GET /api/follows/:fid to view a specific followed user </li>
- *  <li> GET /api/followers/:fid to view a specific follower </li>
  *</ul>
 
  @property {FollowDao} followDao Singleton DAO implementing follow CRUD operations
@@ -43,8 +41,6 @@ export default class FollowController implements FollowControllerI {
             app.delete("/api/users/:uid/unfollows/:fid", FollowController.followController.userUnfollowsUser);
             app.get("/api/users/:uid/follows", FollowController.followController.findAllUsersFollowedByUser);
             app.get("/api/users/:uid/followers", FollowController.followController.findAllUsersFollowingUser);
-            app.get("/api/follows/:fid", FollowController.followController.viewUserFollowing);
-            app.get("/api/follower/:fid", FollowController.followController.viewUserFollowed);
         }
         return FollowController.followController;
     }
@@ -95,23 +91,5 @@ export default class FollowController implements FollowControllerI {
         FollowController.followDao.findAllUsersFollowingUser(req.params.uid)
             .then(follows => res.json(follows));
 
-    /**
-     * @param {Request} req representing request from client, including the path parameter
-     * fid representing the follow object to be retrieved
-     * @param {Response} res representing the client response, including the retrieved JSON-
-     * formatted follow object with user information populated.
-     */
-    viewUserFollowing = (req: Request, res: Response) =>
-        FollowController.followDao.viewUserFollowing(req.params.fid)
-            .then((follow: Follow) => res.json(follow));
 
-    /**
-     * @param {Request} req representing request from client, including the path parameter
-     * fid representing the follow object to be retrieved
-     * @param {Response} res representing the client response, including the retrieved JSON-
-     * formatted follow object with following user information populated.
-     */
-    viewUserFollowed = (req: Request, res: Response) =>
-        FollowController.followDao.viewUserFollowed(req.params.fid)
-            .then((follow: Follow) => res.json(follow));
 };
