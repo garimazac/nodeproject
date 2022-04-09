@@ -21,7 +21,7 @@ import mongoose from "mongoose";
 import GroupController from "./controllers/GroupController";
 const cors = require("cors");
 const session = require("express-session");
-require('dotenv').config()
+//require('dotenv').config()
 
 
 // build the connection string
@@ -37,7 +37,7 @@ mongoose.connect(connectionString);
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: "http://localhost:4000"
+    origin: "http://localhost:3000"
 }));
 
 let sess = {
