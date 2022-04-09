@@ -38,7 +38,7 @@ mongoose.connect(connectionString);
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: "https://peaceful-dolphin-93707b.netlify.app"
+    origin: "https://transcendent-wisp-e67f1f.netlify.app"
 }));
 
 let sess = {
